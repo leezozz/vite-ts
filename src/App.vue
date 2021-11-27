@@ -1,13 +1,14 @@
 <script lang="ts">
 // import HelloWorld from './components/HelloWorld.vue'
 import { useStore } from 'vuex'
-console.log('useStore', useStore)
 import { defineComponent,defineAsyncComponent } from '@vue/runtime-core'
 
 export default defineComponent({
   name: 'APP',
   components: {
-    HelloWorld: defineAsyncComponent(() => import("./components/HelloWorld.vue"))
+    HelloWorld: defineAsyncComponent(() => import("./components/HelloWorld.vue")),
+    Test: defineAsyncComponent(() => import("./components/Test.vue")),
+    Test01: defineAsyncComponent(() => import("./components/Test01.vue"))
   },
   props: {
 
@@ -15,10 +16,7 @@ export default defineComponent({
 
   setup() {
 
-    const store = useStore()
-    console.log(store)
-    console.log('sss', useStore())
-
+    // const store = useStore()
 
     return {
     }
@@ -28,9 +26,10 @@ export default defineComponent({
 </script>
 
 <template>
-  <!-- <img alt="Vue logo" src="./assets/logo.png" /> -->
-  <HelloWorld msg="this is aaa"/>
+  <!-- <Test :title-info="{ value: '代办事项', color: 'skyblue' }"></Test> -->
   <h2>{{123}}</h2>
+  <Test01 :myObj="{ value: 'Todo', color: 'skyblue' }"/>
+  <router-view></router-view>
 </template>
 
 <style>
