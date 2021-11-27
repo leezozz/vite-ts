@@ -27,6 +27,13 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import { useStore } from 'vuex'
+import { useRouter, useRoute, onBeforeRouteUpdate } from 'vue-router';
+
+console.log('useStore', useStore)
+console.log('useRouter', useRouter)
+console.log('useRoute', useRoute)
+
 
 defineProps<{ msg: string }>()
 

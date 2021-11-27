@@ -1,5 +1,6 @@
 <template>
   <div>
+    {{titleInfo.color}}
     <h2 :style="{backgroundColor: titleInfo.color}">{{titleInfo.value}}</h2>
     
     {{counter}}
@@ -17,9 +18,7 @@ import {
  PropType
 } from 'vue'
 
-import store from 'vuex'
-// import { Store } from 'vuex'
-// import { useStore } from '../store/store'
+import { useStore } from 'vuex'
 
 
 import { Todo, TitleInfo } from '../type/types'
@@ -30,8 +29,6 @@ export interface State {
   count: number
 }
 
-
-
 export default defineComponent({
  name: 'Xx',
  components: {},
@@ -40,6 +37,7 @@ export default defineComponent({
      type: Object as PropType<TitleInfo>,
      required: true
    }
+   
  },
  data () {
     return {
@@ -54,16 +52,15 @@ export default defineComponent({
     })
   },
  setup () {
-  // const store = Store()
+  const store = useStore()
 
   // this
   // const { ctx } = getCurrentInstance()
   // console.log(ctx)
 
-  console.log(store)
+  console.log('useStore', useStore)
 
   const counter: number = 666
-  console.log('counter', counter)
 
   return {
     counter

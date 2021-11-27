@@ -10,8 +10,19 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/test',
     name: 'Test',
-    component: () => import('../components/Test.vue')
-  }
+    component: () => import("../components/Test.vue")
+  },
+  {
+    path: '/tests',
+    name: 'Test01',
+    component: () => import("../components/Test01.vue")
+  },
 ]
 
-export default routes;
+const router = createRouter({
+  // history: createWebHistory(process.env.BASE_URL),
+  history: createWebHistory(import.meta.env.BASE_URL),
+  routes,
+});
+
+export default router;
