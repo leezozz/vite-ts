@@ -8,7 +8,10 @@ export default defineComponent({
   components: {
     HelloWorld: defineAsyncComponent(() => import("./components/HelloWorld.vue")),
     Test: defineAsyncComponent(() => import("./components/Test.vue")),
-    Test01: defineAsyncComponent(() => import("./components/Test01.vue"))
+    Test01: defineAsyncComponent(() => import("./components/Test01.vue")),
+    Test02: defineAsyncComponent(() => import("./components/Test02.vue")),
+    Test03: defineAsyncComponent(() => import("./components/Test03.vue"))
+    
   },
   props: {
 
@@ -28,7 +31,10 @@ export default defineComponent({
 <template>
   <!-- <Test :title-info="{ value: '代办事项', color: 'skyblue' }"></Test> -->
   <h2>{{123}}</h2>
-  <Test01 :myObj="{ value: 'Todo', color: 'skyblue' }"/>
+  <!-- <Test01 :myObj="{ value: 'Todo', color: 'skyblue' }"/> -->
+   
+   <!-- <Test02 /> -->
+   <!-- <Test03 /> -->
   <router-view></router-view>
 </template>
 

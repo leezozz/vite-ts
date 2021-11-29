@@ -1,7 +1,9 @@
 <template>
   <div>
+    <!-- <p>{{$store.state.counter}}</p> -->
+    <p @click="$store.commit('add')">counterValue: {{ counterValue }}</p>
     <p>
-      {{ num }}
+      num: {{ num }}
     </p>
     <p>{{ arr }}</p>
     <p>{{myObj}}</p>
@@ -14,10 +16,12 @@ import {
  defineComponent,
  getCurrentInstance,
  ref,
- PropType
+ PropType,
+ computed
 } from 'vue'
 import { useStore } from 'vuex'
 import { Todo, TitleInfo } from '../type/types'
+import { key } from '../store'
 
 export default defineComponent({
  name: 'Xx',
@@ -38,7 +42,13 @@ computed: {
 
  setup (props) {
   // Vuex store
-  const store = useStore()
+  const store = useStore(key)
+
+  // const counterValue = store.state.counter
+  
+  // 通过computed 拿到 state中的值
+  const counterValue = computed(() => store.state.counter)
+  console.log('counterValue',counterValue)
 
   console.log('myObj', props.myObj)
 
@@ -62,7 +72,8 @@ computed: {
     num,
     arr,
     arr1,
-    obj
+    obj,
+    counterValue
   }
  }
 })
