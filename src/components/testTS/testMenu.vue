@@ -1,0 +1,55 @@
+<template>
+  <div class="menu-main">
+    <el-menu
+    :default-active="activeIndex2"
+    class="el-menu-demo"
+    mode="horizontal"
+    background-color="#545c64"
+    text-color="#fff"
+    active-text-color="#ffd04b"
+    @select="handleSelect"
+    >
+      <el-menu-item index="1">Processing Center</el-menu-item>
+      <el-sub-menu index="2">
+        <template #title>Workspace</template>
+        <el-menu-item index="2-1">item one</el-menu-item>
+        <el-menu-item index="2-2">item two</el-menu-item>
+        <el-menu-item index="2-3">item three</el-menu-item>
+        <el-sub-menu index="2-4">
+          <template #title>item four</template>
+          <el-menu-item index="2-4-1">item one</el-menu-item>
+          <el-menu-item index="2-4-2">item two</el-menu-item>
+          <el-menu-item index="2-4-3">item three</el-menu-item>
+        </el-sub-menu>
+      </el-sub-menu>
+    <el-menu-item index="3" disabled>Info</el-menu-item>
+    <el-menu-item index="4">Orders</el-menu-item>
+  </el-menu>
+  </div>
+</template>
+
+<script lang="ts" setup>
+import {
+ defineComponent,
+ ref
+} from 'vue'
+import { useStore } from 'vuex'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
+const activeIndex2 = ref<string>('1')
+console.log('activeIndex2', activeIndex2)
+
+const handleSelect = (key:string, keyPath:string) => {
+  console.log(key, keyPath)
+}
+
+
+</script>
+
+<style scoped lang="scss">
+.menu-main {
+  width: 100%;
+}
+</style>
