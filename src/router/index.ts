@@ -17,6 +17,22 @@ const routes: Array<RouteRecordRaw> = [
     name: 'Test01',
     component: () => import("../components/Test02.vue")
   },
+  {
+    path: '/ts',
+    name: 'TS',
+    component: () => import("../components/testTS/Test.vue")
+  },
+  {
+    path: '/menu',
+    name: 'Menu',
+    component: () => import("../components/testTS/testMenu.vue")
+  },
+  // 表单修饰符
+  {
+    path: '/form',
+    name: 'From',
+    component: () => import("../components/TestVue/test表单修饰符.vue")
+  }
 ]
 
 const router = createRouter({
