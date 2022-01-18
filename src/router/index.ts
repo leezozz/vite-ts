@@ -32,6 +32,12 @@ const routes: Array<RouteRecordRaw> = [
     path: '/form',
     name: 'From',
     component: () => import("../components/TestVue/test表单修饰符.vue")
+  },
+  // ts   new-tset
+  {
+    path: '/new',
+    name: 'New',
+    component: () => import("../components/TestNew/new01.vue")
   }
 ]
 

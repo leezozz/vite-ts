@@ -9,3 +9,13 @@ export type TitleInfo = {
   value: string,
   color: string
 }
+
+export interface A {
+  name: string,
+  age: number
+}
+
+export interface B {
+  name: string,
+  gender: string
+}
